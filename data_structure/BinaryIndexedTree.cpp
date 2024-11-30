@@ -6,8 +6,8 @@ class BinaryIndexedTree {
     int N;
     std::vector<T> BIT;
     struct Operation {
-        static T op(const T x, const T y) {return x + y;}
-        static T inv(const T x, const T y) {return x - y;}
+        static T op(const T &x, const T &y) {return x + y;}
+        static T inv(const T &x, const T &y) {return x - y;}
         static T id() {return T();}
     };
 public:
