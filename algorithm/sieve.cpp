@@ -37,3 +37,7 @@ struct Sieve {
         return res;
     }
 };
+
+/**
+ * @brief Sieve of Eratosthenes
+ */
