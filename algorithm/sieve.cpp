@@ -7,7 +7,7 @@ struct Sieve {
     std::vector<int> minfac;
     Sieve() : is_prime(maxN, 1), prime(), minfac(maxN, -1) {
         is_prime[0] = is_prime[1] = 0;
-        minfac[0] = 0, minfac[1] = 1, minfac[2] = 2;
+        std::iota(minfac.begin(), minfac.end(), 0);
         for (size_t i = 4; i <= maxN; i+=2) {
             is_prime[i] = 0;
             minfac[i] = 2;
@@ -17,7 +17,7 @@ struct Sieve {
             minfac[i] = i;
             for (size_t j = i*i; j <= maxN; j+=2*i) {
                 is_prime[j] = 0;
-                if (minfac[j] == -1) minfac[j] = i;
+                if (minfac[j] > i) minfac[j] = i;
             }
         }
         for (size_t i = 2; i <= maxN; i++) {
