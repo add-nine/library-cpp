@@ -36,6 +36,20 @@ struct Sieve {
         }
         return res;
     }
+    std::vector<int> divisors(int N) {
+        std::vector<int> res{1};
+        for (auto [bs, exp] : factorize(N)) {
+            int len = res.size();
+            for (int i = 0; i < len; i++) {
+                int x = 1;
+                for (int j = 0; j < exp; j++) {
+                    x *= bs;
+                    res.emplace_back(res[i] * x);
+                }
+            }
+        }
+        return res;
+    }
 };
 
 /**
