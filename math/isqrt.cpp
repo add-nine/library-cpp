@@ -1,3 +1,5 @@
+#include <cassert>
+
 template <class T>
 T isqrt(T n) {
     assert(n >= 0);
